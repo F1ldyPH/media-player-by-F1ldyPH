@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "deep-space-music-player"
-version = "4.0.1"
+version = "4.1.0"
 description = "Тёмный полупрозрачный музыкальный плеер для Windows 11 на Python (PySide6)"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -23,6 +23,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+youtube = [
+    "yt-dlp>=2024.1.1",
+]
 dev = [
     "ruff>=0.1.0",
     "pytest>=7.0",
@@ -36,7 +39,7 @@ deep-space-player = "music_player:main"
 # Плоская раскладка: явный список, чтобы setuptools не принял
 # tests/ и файлы в корне за пакеты ("Multiple top-level packages").
 packages = ["ui", "styles"]
-py-modules = ["music_player", "audio_engine", "online_services"]
+py-modules = ["music_player", "audio_engine", "online_services", "youtube_lite"]
 
 [tool.ruff]
 target-version = "py310"

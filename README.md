@@ -2,6 +2,29 @@
 
 Тёмный полупрозрачный музыкальный плеер для Windows 11 на Python (PySide6).
 
+## v4.1 — YouTube без браузера (для слабых ПК)
+
+Вкладка YouTube в Chrome/Edge легко занимает 1.5–3 ГБ RAM. Рядом лежит скрипт
+`youtube_lite.py`, который играет те же видео через **mpv + yt-dlp**
+(~150–400 МБ, без рекламы и фоновых процессов), с жёстко ограниченным буфером
+плеера.
+
+```powershell
+winget install yt-dlp mpv Gyan.FFmpeg
+python youtube_lite.py --check                      # проверка окружения
+python youtube_lite.py https://youtu.be/VIDEO_ID    # смотреть
+python youtube_lite.py "lofi hip hop" --quality low # поиск + 360p (минимум RAM)
+python youtube_lite.py URL --audio                  # только звук
+python youtube_lite.py --gui                        # окно-пульт
+```
+
+Подробный чек-лист «что делать, если YouTube съедает всю память» (браузер,
+Windows, диагностика утечек) — в [`docs/YOUTUBE_RAM_RU.md`](docs/YOUTUBE_RAM_RU.md).
+
+Зависимость необязательная: сам плеер (`music_player.py`) работает без
+`yt-dlp`/`mpv`, они нужны только для YouTube Lite:
+`pip install -e ".[youtube]"`.
+
 ## v4.0 — Блок 1: аудио-движок (готово)
 
 Реализовано и полностью рабочее:
