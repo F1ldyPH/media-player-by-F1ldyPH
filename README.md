@@ -18,8 +18,19 @@ python youtube_lite.py URL --audio                  # только звук
 python youtube_lite.py --gui                        # окно-пульт
 ```
 
-Подробный чек-лист «что делать, если YouTube съедает всю память» (браузер,
-Windows, диагностика утечек) — в [`docs/YOUTUBE_RAM_RU.md`](docs/YOUTUBE_RAM_RU.md).
+Если YouTube смотрится в Firefox — там же лежит `firefox_tune.py`, который
+записывает в профиль настройки памяти (`user.js` с резервной копией):
+
+```powershell
+python firefox_tune.py --list                 # профили Firefox
+python firefox_tune.py --print --preset 8gb   # что будет записано
+python firefox_tune.py --apply --preset 8gb   # применить (8 ГБ RAM)
+python firefox_tune.py --remove               # откатить
+```
+
+Подробный чек-лист «что делать, если YouTube съедает всю память» (Firefox,
+Chrome/Edge, Windows, диагностика утечек) — в
+[`docs/YOUTUBE_RAM_RU.md`](docs/YOUTUBE_RAM_RU.md).
 
 Зависимость необязательная: сам плеер (`music_player.py`) работает без
 `yt-dlp`/`mpv`, они нужны только для YouTube Lite:

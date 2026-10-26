@@ -39,7 +39,7 @@ deep-space-player = "music_player:main"
 # Плоская раскладка: явный список, чтобы setuptools не принял
 # tests/ и файлы в корне за пакеты ("Multiple top-level packages").
 packages = ["ui", "styles"]
-py-modules = ["music_player", "audio_engine", "online_services", "youtube_lite"]
+py-modules = ["music_player", "audio_engine", "online_services", "youtube_lite", "firefox_tune"]
 
 [tool.ruff]
 target-version = "py310"
